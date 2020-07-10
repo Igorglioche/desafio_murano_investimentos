@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+float calcula_parcela(int idade, int idade_retira, float quantia, float taxa) {
+	taxa = taxa / 100;
+	int i;
+	int k;
+	i = (idade_retira - idade);
+	k = pow((1+taxa),i);
+	float parcela;
+	parcela = (quantia * taxa)/(k-1);
+	return parcela;
+}
+
+int main() {
+	int idade;
+	float parcela;
+	int idade_retira;
+	float quantia;
+	float taxa;
+	printf_s("Qual a idade?");
+	scanf_s("%d", &idade);
+	printf_s("Qual a idade que ele retira?");
+	scanf_s("%d", &idade_retira);
+	printf_s("Qual a quantia que deseja?");
+	scanf_s("%f", &quantia);
+	printf_s("Qual a taxa?");
+	scanf_s("%f", &taxa);
+	parcela = calcula_parcela(idade, idade_retira, quantia, taxa);
+	printf_s("%f", parcela);
+}
